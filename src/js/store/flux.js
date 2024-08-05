@@ -56,10 +56,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let newFavList = getStore().favorites.filter((item) => item.name != name)
 
 				setStore({ favorites: newFavList });
-			},
+			},		
 
-
-			fetchPeople: async (id) => {
+			fetchPeople: async () => {
 				let res =
 					await fetch('https://swapi.tech/api/people/')
 						.then(response => {
@@ -90,6 +89,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						})
 				setStore({ planets: res.results });
 			},
+
 			fetchShips: async () => {
 				let res =
 					await fetch('https://swapi.tech/api/starships/')
@@ -104,7 +104,60 @@ const getState = ({ getStore, getActions, setStore }) => {
 							throw Error(error);
 						})
 				setStore({ ships: res.results });
+			},
+
+			fetchSingleCharacter: async (id) => {
+				try {
+					let response = await fetch(`https://swapi.tech/api/people/${id + 1}`);
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					let res = await response.json();
+					let characterData = res.result.properties;
+					let store = getStore();
+					let updatedCharacters = [...store.characters];
+					updatedCharacters[id] = characterData; 
+					setStore({ characters: updatedCharacters });
+				} catch (error) {
+					console.error("Error fetching character:", error);
+				}
+			},	
+
+			
+			fetchSinglePlanet: async (id) => {
+				try {
+					let response = await fetch(`https://swapi.tech/api/planets/${id + 1}`);
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					let res = await response.json();
+					let planetData = res.result.properties;
+					let store = getStore();
+					let updatedPlanets = [...store.planets];
+					updatedPlanets[id] = planetData;
+					setStore({ planets: updatedPlanets });
+				} catch (error) {
+					console.error("Error fetching planet:", error);
+				}
+			},
+
+			fetchSingleShip: async (id) => {
+				try {
+					let response = await fetch(`https://swapi.tech/api/starships/${id + 2}`);
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					let res = await response.json();
+					let shipData = res.result.properties;
+					let store = getStore();
+					let updatedShips = [...store.ships];
+					updatedShips[id] = shipData; 
+					setStore({ ships: updatedShips });
+				} catch (error) {
+					console.error("Error fetching ship:", error);
+				}
 			}
+			
 		}
 	};
 };
