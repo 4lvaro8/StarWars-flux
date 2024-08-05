@@ -18,10 +18,10 @@ export const SinglePlanet = (props) => {
 
     return (
         <div className="container-fluid">
-            <div className="row my-3">
-                <h2>Planets<span className="text-black"> / {planet?.name}</span></h2>
+            <div className="row text-light my-3">
+                <h2>Planets<span className="text-light"> / {planet?.name}</span></h2>
             </div>
-            <div className="row bg-secondary m-5 border border-light single-card">
+            <div className="row bg-warning bg-gradient m-5 border border-light single-card">
                 <div className="row">
                     <div className="col-4 p-0 d-flex">
                         <img className="img-fluid img-cover single-image" src={planetImages[planetId]} alt={planet?.name} />
@@ -36,7 +36,9 @@ export const SinglePlanet = (props) => {
                         <p className="single-info-text my-0"><b>Description:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
-                <Link to="/" className="btn btn-warning w-25 mx-auto">Go Back</Link>
+            </div>
+            <div className="text-center">
+                <Link to="/" className="btn btn-warning w-25">Go Back</Link>
             </div>
         </div>
     );

@@ -2,7 +2,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			favorites: [],
-			favorites2: [],
 			characters: [],
 			planets: [],
 			ships: [],
@@ -37,16 +36,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return string[0].toUpperCase() + string.slice(1);
 			},
 
-			addFav2: (name, type, id) => {
-				let favoritesList = getStore().favorites2;
-				favoritesList.push(name);
-				setStore({ favorites2: favoritesList })
-			},
-
 
 			addFav: (newFav) => {
 				let favoritesList = getStore().favorites;
-				let linkList = []
 				favoritesList.push(newFav);
 
 				setStore({ favorites: favoritesList });
@@ -95,6 +87,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					await fetch('https://swapi.tech/api/starships/')
 						.then(response => {
 							if (response.ok) {
+								console.log(res)
 								return response.json();
 							}
 							else {

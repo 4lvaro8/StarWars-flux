@@ -23,7 +23,7 @@ const Home = () => {
 	
 	return(
 	<div className="container-fluid">
-			<div className="row mt-3">
+			<div className="row text-light mt-3">
 				<h2>Characters</h2>
 			</div>
 			<div className="row card-row d-flex flex-row flex-nowrap">
@@ -31,7 +31,7 @@ const Home = () => {
 					return <Characters name={character.name} imageIndex ={index + 1} link = {"/characters/" + index} key={index} id={index} type={`characters`} />
 				})}
 			</div>
-			<div className="row mt-3">
+			<div className="row text-light mt-3">
 				<h2>Planets</h2>
 			</div>
 			<div className="row card-row d-flex flex-row flex-nowrap">
@@ -39,7 +39,7 @@ const Home = () => {
 					return <Planets name={planet.name} imageURL = {planetImages[index]} link = {"/planets/" + index} key={index} />
 				})}
 			</div>
-			<div className="row mt-3">
+			<div className="row text-light mt-3">
 				<h2>Starships</h2>
 			</div>
 			<div className="row card-row d-flex flex-row flex-nowrap">

@@ -11,7 +11,7 @@ export const Characters = (props) => {
 
 
   return (
-    <div className="card mx-2 bg-secondary px-0 text-light border border-secondary my-3" style={{ width: "18rem" }}>
+    <div className="card mx-2 bg-dark bg-gradient px-0 text-light border border-secondary my-3" style={{ width: "18rem" }}>
       <img className="card-img-top img-fluid img-cover" src={`https://starwars-visualguide.com/assets/img/characters/${props.imageIndex}.jpg`} alt="Card image cap" />
       <div className="my-auto">
         <div className="card-body">

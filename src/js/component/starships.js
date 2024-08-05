@@ -12,11 +12,11 @@ export const Starships = (props) => {
   return (
     <>
       <div
-        className="card mx-2 px-0 bg-secondary text-light border border-secondary my-3"
+        className="card mx-2 px-0 bg-dark bg-gradient text-light border border-secondary my-3"
         style={{ width: "18rem" }}
       >
         <img className="card-img-top img-fluid img-cover img-starship" src={props.imageURL} alt="Card image cap" />
-        <div className="my-auto">
+        <div className=" my-auto">
           <div className="card-body">
             <h4 className="card-title">{props.name}</h4>
             <Link to={props.link} className="btn btn-warning">Learn more</Link>
