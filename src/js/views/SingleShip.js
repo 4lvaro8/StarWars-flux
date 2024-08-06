@@ -10,6 +10,7 @@ export const SingleShip = (props) => {
     const shipImages = store.shipImages;
     const shipId = parseInt(id);
 
+
     useEffect(() => {
         actions.fetchSingleShip(shipId);
     }, [shipId]);
@@ -24,7 +25,7 @@ export const SingleShip = (props) => {
             <div className="row bg-warning bg-gradient m-5 border border-light single-card">
                 <div className="row">
                     <div className="col-4 p-0 d-flex">
-                        <img className="img-fluid img-cover single-image" src={shipImages[shipId]} alt={ship?.name} />
+                        <img className="img-fluid img-cover single-image" src={shipImages} alt={ship?.name} />
                     </div>
                     <div className="col-8 p-4">
                         <h1 className="single-header">{ship?.name}</h1>

@@ -11,7 +11,7 @@ const Home = () => {
 	const { id } = useParams()
 	const characters = store.characters
 	const planets = store.planets
-	let ships = store.ships
+	const ships = store.ships
 	let shipImages = store.shipImages
 	let planetImages = store.planetImages
 
@@ -44,7 +44,7 @@ const Home = () => {
 			</div>
 			<div className="row card-row d-flex flex-row flex-nowrap">
 				{ships?.map((ship, index) => {
-					return <Starships imageURL = {shipImages[index]} name={ship.name} link = {"/starships/" + index} key={index} />
+					return <Starships imageURL = {shipImages[index]} name={ship.name} link = {"/starships/" + ship.uid} key={ship.uid} />
 				})}
 			</div>
 		</div>

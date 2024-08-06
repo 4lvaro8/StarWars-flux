@@ -136,7 +136,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			fetchSingleShip: async (id) => {
 				try {
-					let response = await fetch(`https://swapi.tech/api/starships/${id + 2}`);
+					let response = await fetch(`https://swapi.tech/api/starships/${id}`);
 					if (!response.ok) {
 						throw new Error(response.statusText);
 					}
